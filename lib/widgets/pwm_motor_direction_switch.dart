@@ -10,7 +10,7 @@ class PwmMotorDirectionSwitch extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PwmMotorDirectionCubit, PwmMotorDirectionState>(
       builder: (context, state) {
-        return Container(
+        return Container(width: 200.0, height: 150.0,
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
             color: state.isForward ? Colors.green : Colors.red,
