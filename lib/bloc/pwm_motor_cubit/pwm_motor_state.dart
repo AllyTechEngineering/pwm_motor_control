@@ -1,24 +1,19 @@
-import 'package:equatable/equatable.dart';
+part of 'pwm_motor_cubit.dart';
 
-abstract class PwmMotorState extends Equatable {
-  @override
-  List<Object> get props => [];
-}
+class PwmMotorState extends Equatable {
+  final int motorSpeed;
 
-class PwmMotorInitial extends PwmMotorState {}
+  const PwmMotorState({this.motorSpeed = 0});
 
-class PwmMotorUpdated extends PwmMotorState {
-  final int dutyCycle;
-
-  PwmMotorUpdated(this.dutyCycle);
-
-  @override
-  List<Object> get props => [dutyCycle];
-
-  PwmMotorUpdated copyWith({int? dutyCycle}) {
-    return PwmMotorUpdated(dutyCycle ?? this.dutyCycle);
+  PwmMotorState copyWith({int? motorSpeed}) {
+    return PwmMotorState(
+      motorSpeed: motorSpeed ?? this.motorSpeed,
+    );
   }
 
   @override
-  String toString() => 'PwmMotorUpdated(dutyCycle: $dutyCycle)';
+  List<Object> get props => [motorSpeed];
+
+  @override
+  String toString() => 'PwmMotorState(motorSpeed: $motorSpeed)';
 }
