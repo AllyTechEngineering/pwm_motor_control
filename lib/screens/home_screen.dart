@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pwm_motor_control/bloc/pwm_motor_cubit/pwm_motor_cubit.dart';
 import 'package:pwm_motor_control/services/pwm_motor_service.dart';
+import 'package:pwm_motor_control/widgets/pwm_motor_direction_switch.dart';
 import 'package:pwm_motor_control/widgets/pwm_motor_speed_slider.dart';
 import 'package:pwm_motor_control/widgets/pwm_motor_toggle_switch.dart';
 
@@ -19,6 +20,8 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             PwmMotorSpeedSlider(),
+            SizedBox(height: 20),
+            const PwmMotorDirectionSwitch(),
             SizedBox(height: 20),
             PwmMotorToggleSwitch(),
           ],

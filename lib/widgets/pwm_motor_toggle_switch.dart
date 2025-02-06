@@ -10,10 +10,10 @@ class PwmMotorToggleSwitch extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PwmMotorOnOffCubit, PwmMotorOnOffState>(
       builder: (context, state) {
-        return Row(
+        return Column(crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Motor Power On / Off'),
+            const Text('Motor Off/On'),
             Switch(
               value: state.isOn,
               onChanged: (value) {

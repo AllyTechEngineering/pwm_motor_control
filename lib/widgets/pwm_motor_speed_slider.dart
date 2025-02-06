@@ -11,15 +11,18 @@ class PwmMotorSpeedSlider extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            Slider(
-              value: state.motorSpeed.toDouble(),
-              min: 0,
-              max: 100,
-              divisions: 100,
-              label: 'Motor Dutycycle: ${state.motorSpeed}%',
-              onChanged: (value) {
-                context.read<PwmMotorCubit>().updateMotorSpeed(value.toInt());
-              },
+            SizedBox(
+              width: 300,
+              child: Slider(
+                value: state.motorSpeed.toDouble(),
+                min: 0,
+                max: 100,
+                divisions: 100,
+                label: 'Motor Dutycycle: ${state.motorSpeed}%',
+                onChanged: (value) {
+                  context.read<PwmMotorCubit>().updateMotorSpeed(value.toInt());
+                },
+              ),
             ),
             Text('Motor Speed: ${state.motorSpeed}%'),
           ],
