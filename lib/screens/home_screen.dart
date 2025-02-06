@@ -14,17 +14,40 @@ class HomeScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => PwmMotorCubit(PwmMotorService()),
       child: Scaffold(
-        appBar: AppBar(title: const Text('PWM Motor Control')),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            PwmMotorSpeedSlider(),
-            SizedBox(height: 20),
-            const PwmMotorDirectionSwitch(),
-            SizedBox(height: 20),
-            PwmMotorToggleSwitch(),
-          ],
+        appBar: AppBar(
+          title: const Text('PWM Motor Control'),
+          centerTitle: true,
+        ),
+        body: Center(
+          child: SizedBox(
+            width: 600, // Keep UI centered and constrained
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Vertical PWM Speed Slider (Left Side) with increased height
+                SizedBox(
+                  width: 100.0, // Keep slider narrow
+                  height: 300.0, // Match the combined switch height
+                  child: const PwmMotorSpeedSlider(vertical: true),
+                ),
+
+                // Space between slider and switches
+                const SizedBox(width: 40),
+
+                // Column for Direction and Power Switches (Right Side)
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    PwmMotorDirectionSwitch(),
+                    SizedBox(height: 20),
+                    PwmMotorToggleSwitch(),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
